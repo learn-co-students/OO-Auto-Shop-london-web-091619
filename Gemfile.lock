@@ -7,6 +7,9 @@ GEM
     pry (0.11.3)
       coderay (~> 1.1.0)
       method_source (~> 0.9.0)
+    pry-doc (1.0.0)
+      pry (~> 0.11)
+      yard (~> 0.9.11)
     require_all (2.0.0)
     rspec (3.7.0)
       rspec-core (~> 3.7.0)
@@ -21,14 +24,16 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.7.0)
     rspec-support (3.7.1)
+    yard (0.9.20)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
   pry
+  pry-doc
   require_all
   rspec
 
 BUNDLED WITH
-   1.16.1
+   1.17.3
