@@ -20,8 +20,10 @@ class CarOwner
     save
   end
 
-  def buy_car(car)
+  def buy_car(make:, model:, classification:)
+    car = Car.new(make: make, model: model, classification: classification)
     car.owner = self
+    car
   end
 
   def owned_cars
