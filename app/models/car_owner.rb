@@ -1,10 +1,39 @@
 class CarOwner
-
   attr_reader :name
+
+  @@all = []
+
+  def self.all
+    @@all
+  end
+
+  def self.average_cars
+    all.map(&:owned_cars).map(&:count).reduce(:+) / all.count.to_f
+  end
+
+  def save
+    self.class.all << self
+  end
 
   def initialize(name)
     @name = name
+    save
   end
 
+  def buy_car(car)
+    car.owner = self
+  end
 
+  def owned_cars
+    Car.all.select { |car| car.owner.eql?(self) }
+  end
+
+  def hire_mechanic(car:, mechanic:)
+    car.mechanic = mechanic
+  end
+
+  def current_mechanics
+    # what if the car doesn't have a mechanic?
+    owned_cars.map(&:mechanic).uniq.reject { |mechanic| mechanic.eql?(nil) }
+  end
 end
