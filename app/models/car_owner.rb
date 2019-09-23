@@ -33,7 +33,6 @@ class CarOwner
   end
 
   def current_mechanics
-    # what if the car doesn't have a mechanic?
     owned_cars.map(&:mechanic).uniq.reject { |mechanic| mechanic.eql?(nil) }
   end
 end
